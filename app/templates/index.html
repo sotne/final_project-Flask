@@ -4,7 +4,29 @@
 {% block title%} HomePage {% endblock title%}
 
 {% block content %}
+<div class="container lg-4 md-3 sm-6 text-center w-auto">
+    <div class="row">
+        <div class="col-8">
+            <img src="{{ url_for('static', filename='images/pic3.jpg')}}" class="w-50" alt="">
+        </div>
+        <div class="col-4">
+            <h3>If you are looking for a fun competetive game?</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <h3>Looking for some bros to bond with </h3>
+        </div>
+        <div class="col-8">
+            <img src="{{ url_for('static', filename='images/pic7.jpg')}}" class="w-50"alt="">
+        </div>
 
-<h1 class="text-center">boston home Page</h1>
+    </div>
+</div>
 
+
+
+<!-- this is where i will put post and comments that are meant to see quick such as updates -->
+<!-- only logged in people can make post -->
+<!-- assigned highier ups can delete post as well -->
 {% endblock %}
