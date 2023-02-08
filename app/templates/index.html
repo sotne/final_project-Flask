@@ -46,18 +46,43 @@
                         With more than 40 active players and over 100 alumni, the Maccabis have built a strong tradition of winning on the pitch and a legacy of fun and service off of it. In addition to practices and games, the Maccabis make it our mission to give back to the community and have volunteered with organizations including Cradles To Crayons, the Boston Red Sox, Jewish Children and Family Services, Smart from the Start, and more.
                         In the Spring and Fall, practices are held in Watertown and matches in Newton. The Summer is highlighted by twice-weekly touch sessions in Newton and participation in the NERFU 7s Series. 
                         Doesn't matter if you're a veteran or have never touched a rugby ball - come join us. </p>
-                      <a href="{{ url_for('contactus') }}" class="btn btn-primary">Contact Info</a>
+                      <a href="{{ url_for( 'contactus' ) }}" class="btn btn-primary">Contact Info</a>
                     </div>
                   </div>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-4">
+        <div class="col-6">
             <h3>Looking for some bros to bond with </h3>
         </div>
-        <div class="col-8">
-            <img src="{{ url_for('static', filename='images/pic7.jpg')}}" class="w-50"alt="">
+        <div class="col-6">
+            <div id="carouselExampleIndicators" class="carousel slide">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="{{ url_for('static', filename='images/pic3.jpg')}}" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="{{ url_for('static', filename='images/pic4.jpg')}}" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="{{ url_for('static', filename='images/pic7.jpg')}}" class="d-block w-100" alt="...">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
         </div>
 
     </div>
