@@ -8,7 +8,51 @@
 
 {% block content %}
 
-<h1 class="text-center">Contact info</h1>
-<!-- rugby email= bostonmaccabirugby@gmail.com -->
+<section class="mb-4">
+    <h2 class="h1-responsive font-weight-bold text-center my-4">Contact</h2>
+    <p class="text-center w-responsive mx-auto mb-5">would you like use to do an volenteer at an event for you. or even if you would like to join the team, dont hesitate to send an email. we will respond as soon as we can.</p>
+    <div class="row">
+        <div class="col-md-10 mb-md-0 m-5">
+            <form id="contact-form" name="contact-form" action="mailto:bostonmaccabirugby@gmail.com" method="GET">
+                <div class="row mb-3">
+                    <div class="col-md-6 ">
+                        <div class="md-form mb-0">
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Please enter Your name">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="md-form mb-0">
+                            <input type="text" id="email" name="email" class="form-control" placeholder="Please enter Your email">
+                        </div>
+                    </div>         
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="md-form mb-0 mb-3">
+                            <select class="form-select" aria-label="Default select example" id="subject" name="subject">
+                                <option selected>please choose one</option>
+                                <option value="Join">Join</option>
+                                <option value="Volenteer">Volenteer</option>
+                                <option value="Other">Other</option>
+                              </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="md-form">
+                            <textarea type="text" id="message" name="body" rows="2" class="form-control md-textarea" placeholder="How may we help you today?"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center text-md-left">
+                    <input type="submit" value="Send" class="btn btn-primary"/>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</section>
+
 
 {% endblock %}
