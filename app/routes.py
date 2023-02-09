@@ -19,3 +19,7 @@ def signup():
 def login():
     form = LoginForm()
     return render_template('login.html', form=form)
+
+@app.route('/calender')
+def calender():
+    return render_template('calender.html')
