@@ -71,7 +71,7 @@
         <span class="mx-2"><strong>Stay Updated</strong></span>
         <a href="{{ url_for('create')}}" class="btn btn-primary">Post an update</a>
     <hr>
-{% for update in updates %}
+{% for update in updates|reverse %}
 <div class="container mt-3">
     <div class="card w-50  m-auto ">
         <div class="card-header ">{{ update.user.username }}</div>
