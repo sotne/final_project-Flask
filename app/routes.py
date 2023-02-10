@@ -1,15 +1,18 @@
 from app import app
-from app.models import User
-from flask import render_template, url_for, redirect, flash
-from app.forms import SignUpForm, LoginForm
-from flask_login import login_user, logout_user
+from app.models import User, Updates
+from flask import render_template, url_for, redirect, flash, request
+from app.forms import SignUpForm, LoginForm, UpdatesForm
+from flask_login import login_user, logout_user, current_user, login_required
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    updates = Updates.query.all()
+    return render_template('index.html', updates=updates)
 
 @app.route('/contactus')
 def contactus():
+    # if request.method == 'POST':
+    #     return redirect(url_for('index'))
     return render_template('contactus.html')
 
 @app.route('/signup', methods=["GET", "POST"])
@@ -49,6 +52,57 @@ def login():
         
     return render_template('login.html', form=form)
 
+@app.route('/logout')
+def logout():
+    logout_user()
+    flash('Logged out', 'border subtle')
+    return redirect(url_for('index'))
+
 @app.route('/calender')
 def calender():
     return render_template('calender.html')
+
+@app.route('/create', methods= ['GET', 'POST'])
+@login_required
+def create():
+    form = UpdatesForm()
+    if form.validate_on_submit():
+        body=form.body.data
+        new_update = Updates(user_id= current_user.id, body=body)
+        flash('update posted', 'success')
+        return redirect(url_for('index'))
+    return render_template('create.html', form=form)
+
+@app.route('/updates/<update_id>/edit', methods = ['GET', 'POST'])
+@login_required
+def edit(update_id):
+    update = Updates.query.get(update_id)
+    if not update:
+        flash('this post doesntexist', 'danger')
+        return redirect(url_for('index'))
+    if update.user != current_user:
+        flash('this post isnt yours', 'danger')
+        return redirect(url_for('index'))
+    form = UpdatesForm()
+    if form.validate_on_submit():
+        body=form.body.data
+        update.update(body=body)
+        flash('update changed','success')
+        return redirect(url_for('index'))
+    if request.method == 'GET':
+        form.body.data = update.body
+    return render_template('edit.html', update=update, form=form)
+
+@app.route('/updates/<update_id>/delete', methods=['GET', 'POST'])
+@login_required
+def delete(update_id):
+    update = Updates.query.get(update_id)
+    if not update:
+        flash('this post doesntexist', 'danger')
+        return redirect(url_for('index'))
+    if update.user != current_user:
+        flash("You do not have permission to delete this post", "danger")
+        return redirect(url_for('index'))
+    update.delete()
+    flash('update deleted', 'success')
+    return redirect(url_for('index'))

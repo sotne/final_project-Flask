@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, EmailField
+from wtforms import StringField, PasswordField, SubmitField, EmailField, TextAreaField
 from wtforms.validators import EqualTo, InputRequired
 
 
@@ -15,3 +15,7 @@ class LoginForm(FlaskForm):
     email=EmailField('Email', validators=[InputRequired()])
     password=PasswordField('Password', validators=[InputRequired()])
     submit=SubmitField()
+
+class UpdatesForm(FlaskForm):
+    body = TextAreaField('body', validators=[InputRequired()])
+    submit = SubmitField()
