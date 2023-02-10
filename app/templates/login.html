@@ -20,7 +20,8 @@
                         </div>
                         <div class="mb-3">
                             {{ form.password(class='form-control', placeholder='Enter Password') }}
-                        </div>                  
+                        </div>           
+                        <a href="{{url_for('signup')}}">have an account? login</a>
                         {{ form.submit(class='btn btn-success w-100 mt-3') }}
                     </form>
                 </div>

@@ -26,7 +26,8 @@
                         </div>
                         <div class="mb-3">
                             {{ form.confirm_pass(class='form-control', placeholder='Confirm Password') }}
-                        </div>                    
+                        </div>        
+                        <a href="{{url_for('login')}}">dont have an account? signup</a>            
                         {{ form.submit(class='btn btn-success w-100 mt-3') }}
                     </form>
                 </div>
